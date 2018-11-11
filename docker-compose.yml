@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  mosbox:
+    image: horizon
+    container_name: mosbox_horizon
+    environment:
+      - PARALLEL=26
+      - QUEUE=/rp/mosbox_queue.json
+    volumes:
+      - /home/mshirley/rp:/rp
+
+  rpgds2:
+    image: horizon
+    container_name: rpgds2_horizon
+    environment:
+      - PARALLEL=6
+      - QUEUE=/rp/rpgds2_queue.json
+    volumes:
+      - /home/mshirley/rp:/rp

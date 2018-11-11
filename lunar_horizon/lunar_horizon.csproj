@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94BD44FC-2AB9-418D-A59D-5335F37C6E39}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lunar_horizon</RootNamespace>
+    <AssemblyName>lunar_horizon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.6.0.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="gdalconst_csharp, Version=1.0.5387.28601, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\gdalconst_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="gdal_csharp, Version=1.0.5387.28601, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\gdal_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ILGPU, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ILGPU.0.2.0\lib\net46\Release\ILGPU.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ogr_csharp, Version=1.0.5387.28600, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\ogr_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\OpenTK\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="osr_csharp, Version=1.0.5387.28600, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\osr_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="batch\QueueProcessor.cs" />
+    <Compile Include="calc\LightCurveApprox.cs" />
+    <Compile Include="calc\LightCurveImage.cs" />
+    <Compile Include="calc\LocationProbePropertySheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="calc\LocationProbePropertySheet.Designer.cs">
+      <DependentUpon>LocationProbePropertySheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="calc\SunVectorCache.cs" />
+    <Compile Include="calc\TimeSpanImage.cs" />
+    <Compile Include="features\Feature.cs" />
+    <Compile Include="features\FeatureManager.cs" />
+    <Compile Include="GdalConfiguration.cs" />
+    <Compile Include="gpu\CombinedProcessor.cs" />
+    <Compile Include="gpu\GPUProcessor.cs" />
+    <Compile Include="gpu\GPUTest.cs" />
+    <Compile Include="graphics\RenderIceStabilityDepthTest.cs" />
+    <Compile Include="LunarHorizon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LunarHorizon.Designer.cs">
+      <DependentUpon>LunarHorizon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="math\DoubleConverter.cs" />
+    <Compile Include="math\Extensions.cs" />
+    <Compile Include="math\MathHelper.cs" />
+    <Compile Include="math\Matrix3.cs" />
+    <Compile Include="math\Matrix3d.cs" />
+    <Compile Include="math\Matrix4.cs" />
+    <Compile Include="math\Matrix4d.cs" />
+    <Compile Include="math\Quaternion.cs" />
+    <Compile Include="math\Quaterniond.cs" />
+    <Compile Include="math\TriangleClipper.cs" />
+    <Compile Include="math\Vector2.cs" />
+    <Compile Include="math\Vector2d.cs" />
+    <Compile Include="math\Vector3.cs" />
+    <Compile Include="math\Vector3d.cs" />
+    <Compile Include="math\Vector4.cs" />
+    <Compile Include="math\Vector4d.cs" />
+    <Compile Include="mouse\CrossSectionMode.cs" />
+    <Compile Include="mouse\DragPickableInMap.cs" />
+    <Compile Include="mouse\DragRectangleMode.cs" />
+    <Compile Include="mouse\DragRenderPoint.cs" />
+    <Compile Include="mouse\DragRenderPoint2.cs" />
+    <Compile Include="mouse\DropLocationProbe.cs" />
+    <Compile Include="mouse\HilightShadowCasters.cs" />
+    <Compile Include="mouse\HilightSurroundingPatches.cs" />
+    <Compile Include="mouse\LightCurveMode.cs" />
+    <Compile Include="mouse\LocationProbe.cs" />
+    <Compile Include="mouse\MapIdleMode.cs" />
+    <Compile Include="mouse\MapPanMode.cs" />
+    <Compile Include="mouse\MouseMode.cs" />
+    <Compile Include="mouse\PaintSelectionMode.cs" />
+    <Compile Include="mouse\Pickable.cs" />
+    <Compile Include="mouse\RulerMeasureMode.cs" />
+    <Compile Include="mouse\SelectTesterPatch.cs" />
+    <Compile Include="patches\TerrainPatch.cs" />
+    <Compile Include="patches\TerrainStretch.cs" />
+    <Compile Include="pds\MemoryMappedImgFile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="calc\TimeSpanImageProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="calc\TimeSpanImageProperties.Designer.cs">
+      <DependentUpon>TimeSpanImageProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spice\CSpice.cs" />
+    <Compile Include="spice\SpiceManager.cs" />
+    <Compile Include="terrain\Horizon.cs" />
+    <Compile Include="terrain\InMemoryTerrainManager.cs" />
+    <Compile Include="terrain\MeshGenerator.cs" />
+    <Compile Include="terrain\MeshPatch.cs" />
+    <Compile Include="tiles\BugHunt.cs" />
+    <Compile Include="tiles\IceStabilityTileGenerator.cs" />
+    <Compile Include="tiles\Tile.cs" />
+    <Compile Include="tiles\TileTree.cs" />
+    <Compile Include="tiles\TileTreeNode.cs" />
+    <Compile Include="tiles\TileTreeNodeFiller.cs" />
+    <Compile Include="traverse\LatLonTraverseSummary.cs" />
+    <Compile Include="utilities\ColorUtilities.cs" />
+    <Compile Include="utilities\Extensions.cs" />
+    <Compile Include="view\CompareToAndy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CompareToAndy.Designer.cs">
+      <DependentUpon>CompareToAndy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DrawingHelper.cs" />
+    <Compile Include="view\MapLayer.cs" />
+    <Compile Include="view\MapView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\MeshGeneratorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MeshGeneratorWindow.Designer.cs">
+      <DependentUpon>MeshGeneratorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\MeshTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MeshTester.Designer.cs">
+      <DependentUpon>MeshTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PatchCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PatchCompare.Designer.cs">
+      <DependentUpon>PatchCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PickablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\PlotWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PlotWindow.Designer.cs">
+      <DependentUpon>PlotWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ShadowCasterWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ShadowCasterWindow.Designer.cs">
+      <DependentUpon>ShadowCasterWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\StatusManager.cs" />
+    <Compile Include="view\TileTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TileTester.Designer.cs">
+      <DependentUpon>TileTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viz\Ball.cs" />
+    <Compile Include="viz\Camera.cs" />
+    <Compile Include="viz\Earth.cs" />
+    <Compile Include="viz\Extensions.cs" />
+    <Compile Include="viz\LightCurveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viz\LightCurveForm.Designer.cs">
+      <DependentUpon>LightCurveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viz\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viz\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viz\MoonDEM.cs" />
+    <Compile Include="viz\OpenGLControlWrapper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="viz\ShaderProgram.cs" />
+    <Compile Include="viz\Shape.cs" />
+    <Compile Include="viz\StarBackground.cs" />
+    <Compile Include="viz\TerrainVizWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viz\TerrainVizWindow.Designer.cs">
+      <DependentUpon>TerrainVizWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viz\TexturedBall.cs" />
+    <Compile Include="viz\TexturedShape.cs" />
+    <Compile Include="viz\Utilities.cs" />
+    <Compile Include="viz\World.cs" />
+    <EmbeddedResource Include="calc\LocationProbePropertySheet.resx">
+      <DependentUpon>LocationProbePropertySheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LunarHorizon.resx">
+      <DependentUpon>LunarHorizon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="calc\TimeSpanImageProperties.resx">
+      <DependentUpon>TimeSpanImageProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CompareToAndy.resx">
+      <DependentUpon>CompareToAndy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MeshGeneratorWindow.resx">
+      <DependentUpon>MeshGeneratorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MeshTester.resx">
+      <DependentUpon>MeshTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PatchCompare.resx">
+      <DependentUpon>PatchCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PlotWindow.resx">
+      <DependentUpon>PlotWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ShadowCasterWindow.resx">
+      <DependentUpon>ShadowCasterWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TileTester.resx">
+      <DependentUpon>TileTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viz\LightCurveForm.resx">
+      <DependentUpon>LightCurveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viz\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viz\TerrainVizWindow.resx">
+      <DependentUpon>TerrainVizWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="shaders\earth_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\earth_vs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\moon1_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\moon1_vs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\phong_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\phong_rejection1_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\phong_vs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\simple_fs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\simple_vs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\textured_phong_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shaders\textured_phong_vs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="StaticFiles\lunar_horizon.bsh" />
+    <None Include="StaticFiles\Named_Lunar_Features_for_map_labeling.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GdalConfiguration.vb" />
+    <Content Include="License-LGPL.txt" />
+    <Content Include="notes.txt" />
+    <AdditionalFiles Include="StaticFiles\cspice.dll" />
+    <None Include="Resources\btnDrawRectangle1024.Image.png" />
+    <None Include="Resources\btnDrawRectangle128.Image.png" />
+    <None Include="Resources\btnToggleControlsPane.Image.png" />
+    <Content Include="Resources\CrossSection.ico" />
+    <Content Include="Resources\earth_800x400.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\earth_night_800x400.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rm -rf kernels
+cp -r $(ProjectDir)StaticFiles/kernels kernels
+cp $(ProjectDir)StaticFiles/Named_Lunar_Features_for_map_labeling.csv .
+cp $(ProjectDir)StaticFiles/Named_Lunar_Features_for_map_labeling.csv .
+cp $(ProjectDir)StaticFiles/cspice.dll .
+cp $(ProjectDir)StaticFiles/lunar_horizon.bsh .
+chmod +x lunar_horizon.bsh</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets" Condition="Exists('..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets'))" />
+    <Error Condition="!Exists('..\packages\ILGPU.0.2.0\build\ILGPU.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILGPU.0.2.0\build\ILGPU.targets'))" />
+  </Target>
+  <Import Project="..\packages\ILGPU.0.2.0\build\ILGPU.targets" Condition="Exists('..\packages\ILGPU.0.2.0\build\ILGPU.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

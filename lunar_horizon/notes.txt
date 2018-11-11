@@ -1,0 +1,104 @@
+﻿TODO:
+* Check this: shadow rendering is using a single matrix at the center of each patch.
+  There is code that does this.  Why?  Remove it.
+
+Layers
+* hillshade
+* slope
+* cumulative sun
+* cumulative earth
+* earth horizon angle
+* sun shadow
+* earth shadow
+* cumulative sun / time range
+* short night
+
+Layer Manager
+
+Looking glass layers?
+
+Tools
+* distance
+* transcept / cross section
+* (look at GIS tools)
+
+* OpenGL or DirectX
+* 2D and 3D
+
+
+
+
+From: http://lroc.sese.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DOCUMENT/RDRSIS.PDF
+
+Polar Stereographic Projection
+
+The Polar Stereographic projection [6], used for observations acquired at higher latitudes,
+is ideally suited for observations near the poles as shape and scale distortion are
+minimized. The LROC derived products in Polar Stereographic projection use the
+ellipsoid form of the equations.
+
+In continuous form, the spherical equations relating map coordinates (x, y) to
+planetocentric coordinates (Lat, Lon) are:
+
+North Polar Stereographic:
+x = 2·R·TAN(Pi/4-Lat/2)·SIN(Lon-LonP)
+y = -2·R·TAN(Pi/4-Lat/2)·COS(Lon-LonP)
+
+South Polar Stereographic:
+x = 2·R·TAN(Pi/4+Lat/2)·SIN(Lon-LonP)
+y = 2·R·TAN(Pi/4+Lat/2)·COS(Lon-LonP)
+
+Where LonP is the central longitude, LatP is the latitude of true scale and is always 90 or
+-90, and R is the polar radius of the Moon, or 1,737.4 km.
+
+The spherical inverse formulas for Lat and Lon from X and Y position in the image array
+are:
+
+Lat = Math.ArcSin(Math.COS(C)*Math.SIN(LatP)+y*Math.SIN(C)*Math.COS(LatP)/P)
+
+North Polar Stereographic:
+Lon = LonP + Math.ARCTAN(x/(-y))
+
+South Polar Stereographic:
+Lon = LonP + Math.ARCTAN(x/y)
+
+where:
+P = Math.Sqrt(x*x + y*y)
+C =2*Math.ARCTAN(P/2*R)
+
+recall:
+x = (Sample-S0-1)*Scale
+y = (1-L0-Line)*Scale
+
+The keywords corresponding to the equation parameters for the Polar Stereographic
+projection are located in the IMAGE_MAP_PROJECTION object found in the PDS
+labels. The keywords for each equation parameter are shown above.
+
+---------------------------------------------------------------
+docker build -t horizon .
+docker run -d -e "QUEUE=/rp/tiles/queues/near-hermitea.json" -v /home/mshirley/rp:/rp horizon
+
+
+---------------------------------------------------------------
+
+To Do
+* Conventions for terrain patches (standard size=128, standard locations relative to the DEM)
+* Conventions for storing patch data (not sure whether to flip the data around)
+* Highlight set of patches
+* Consider caching terrain patches.  Right now, I'm not so that the GC can clean some space up.  I think this is ok, because the bulk
+  of the time in shadow calculation is cross patch, not preparing each patch.
+
+
+
+  Save this:
+  To specify the watchdog time threshold for display drivers, create the following REG_DWORD entry in the registry:
+
+Copy
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Watchdog\Display\BreakPointDelay
+Set the value of BreakPointDelay to the watchdog time threshold, in 10-second units. For example, a value of 200 specifies a threshold of 2,000 seconds.
+If you test your display driver without an attached debugger, you can prevent the watchdog timer from generating a bug check. To do so, create the following REG_DWORD entry in the registry, and set its value to 1:
+
+Copy
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Watchdog\Display\DisableBugCheck
+The techniques described in this topic are only for debugging and testing. Do not release a driver that creates or alters BreakPointDelay or DisableBugCheck.
+
